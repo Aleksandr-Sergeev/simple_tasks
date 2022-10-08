@@ -4,12 +4,6 @@ import logging
 from sys import stderr
 
 
-# import pytest
-# import pyperclip
-# import openpyxl
-# import xlrd as xlrd
-
-
 class OutputFormatter(logging.Formatter):
     def format(self, record):
         record.source_url = record.args.get("source_url")
@@ -23,8 +17,6 @@ class OutputFormatter(logging.Formatter):
 def start_parser_logger():
     logger = logging.getLogger()
     ch = logging.StreamHandler(stderr)
-    # formatter = logging.Formatter('%s tags count result: Response: %s Unique tags count: %s Tags count: %s Tags with attributes count: %s')
-    # ch.setFormatter(formatter)
     ch.setLevel(logging.INFO)
     logger.addHandler(ch)
     logging.basicConfig(level=logging.INFO, handlers=[ch])
